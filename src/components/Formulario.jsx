@@ -1,27 +1,109 @@
-import React from 'react';
+import React from "react";
+import data from "./Inputs.json";
+
+
+let itemList = [];
+data.inputs.forEach((d) => {
+  itemList.push(<InputsCard data={d} />);
+});
+
+
+function InputsCard({ data }) {
+  return (
+    <div id="inputsType">
+      <label
+        for="first_name"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >
+        {data.label}
+      </label>
+      <input disabled
+        type={data.type}
+        id={data.id}
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder={data.labels}
+      />
+            <div className="relative">
+              <button className="px-3 py-2 p-2.5 font-medium text-center text-white transition duration-200 bg-indigo-600 rounded-lg hover:bg-blue-500 ease" >
+                Agregar
+              </button>
+            </div>
+    </div>
+  );
+}
 
 const Formulario = () => {
   return (
-<div className="max-w-2xl mx-auto">
-<form className="flex items-center">   
-    <label for="voice-search" className="sr-only">Search</label>
-    <div className="relative w-full">
-        <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+    <div class="flex flex-col md:lg:xl:flex-row">
+      <div class="h-screen w-screen md:lg:xl:w-1/2 bg-gray-100 flex flex-wrap justify-center content-center ">
+        <div class="max-w-2xl mx-auto bg-white p-16">
+          <div class="flex items-center justify-center font-black m-3 mb-12">
+            <svg
+              class="h-10 w-10 mr-3 text-indigo-600 animate-pulse"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <h1 class="tracking-wide text-3xl text-gray-900">
+             Seleccioné los campos para agregarlos al formulario
+            </h1>
+          </div>
+          <p class="mt-5">Click en el botón para agregarlo al formulario</p>
+          <form>
+            <div class="grid gap-6 mb-6 lg:grid-cols-2" id="forms">
+              {itemList}
+            </div>
+          </form>
         </div>
-        <button type="button" className="flex absolute inset-y-0 right-0 items-center pr-3">
-            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd"></path></svg>
-        </button>
+      </div>
+      <div className="h-screen  md:lg:xl:w-1/2 bg-indigo-600 flex flex-wrap justify-center content-center">
+        <div className="bg-white p-8 rounded-xl shadow-xl shadow-neutral-900 w-96">
+          <form action="" className="bg-white">
+            <h2 className="text-2xl font-bold">Llena tus datos!</h2>
+            <p className="my-4 opacity-70">
+              Para eliminar un campo da click en el icono
+            </p>
+            <hr className="my-6" />
+            <label className="uppercase text-sm font-bold opacity-70">
+              Nombre
+            </label>
+            <input
+              type="text"
+              className="p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"
+            />
+            <label className="uppercase text-sm font-bold opacity-70">
+              Email
+            </label>
+            <input
+              type="text"
+              className="p-3 mt-2 mb-4 w-full bg-slate-200 rounded"
+            />
+            <label className="uppercase text-sm font-bold opacity-70">
+              Lenguaje
+            </label>
+            <select className="w-full p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none">
+              <option value="">Javascript</option>
+              <option value="">Ruby</option>
+              <option value="">Python</option>
+              <option value="">PHP</option>
+              <option value="">Java</option>
+            </select>
+            <div className="relative">
+              <button className="inline-block w-full px-5 py-4 text-xl font-medium text-center text-white transition duration-200 bg-indigo-600 rounded-lg hover:bg-blue-500 ease">
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <button type="submit" className="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><svg class="mr-2 -ml-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>Search</button>
-</form>
-<p className="mt-5">This search bar component is part of a larger, open-source library of Tailwind CSS components. Learn
-    more
-    by going to the official <a className="text-blue-600 hover:underline"
-        href="https://flowbite.com/docs/getting-started/introduction/">Flowbite Documentation</a>.
-</p>
-</div>
   );
 };
-
 export default Formulario;

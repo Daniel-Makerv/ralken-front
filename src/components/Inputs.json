@@ -1,0 +1,11 @@
+{ 
+  "inputs":[
+    { "labels": "Nombre", "id":"nombre", "type": "text", "_uid": "df7e099a-dd3c-11ec-9d64-0242ac120002" },
+    { "labels": "Apellido Paterno", "id":"apellido_paterno", "type": "text", "_uid": "df7e099a-dd3c-11ec-9d64-0242ac120002" },
+    { "labels": "Apellido Materno", "id":"apellido_materno", "type": "text", "_uid": "ef2bceae-dd3c-11ec-9d64-0242ac120002" },
+    { "labels": "Fecha de nacimiento","id":"fecha_nacimiento",  "type": "date", "_uid": "fbb2e568-dd3c-11ec-9d64-0242ac120002" },
+    { "labels": "Numero de telefono","id":"no_telefono",  "type": "number", "_uid": "fbb2e644-dd3c-11ec-9d64-0242ac120002" },
+    { "labels": "Correo Electronico", "id":"email", "type": "email", "_uid": "fbb2e720-dd3c-11ec-9d64-0242ac120002" }
+  ]
+
+}
